@@ -40,5 +40,5 @@ for event in longpool.listen():
         if event.to_me:
             msg = event.text.lower()
             id = event.user_id
-            grass_block(region=msg[0:2],district=msg[2:4],zone=msg[4:-1],grass=msg[11:12])
+            send_some_msg(id,grass_block(region=msg[0:2],district=msg[2:4],zone=msg[4:-1],grass=msg[11:12]))
 
