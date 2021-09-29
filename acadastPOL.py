@@ -10,7 +10,7 @@ session_api = vk_session.get_api()
 longpool = VkLongPoll(vk_session)
 msg = '521800800844'
 
-
+print('bot start')
 def send_some_msg(id, some_text):
     vk_session.method("messages.send", {"user_id":id, "message":some_text,"random_id":0})
 
