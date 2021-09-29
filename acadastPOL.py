@@ -16,12 +16,12 @@ def send_some_msg(id, some_text):
 
 
 def grass_block(region='52',district='18',zone='0080065',grass='13',blockX='56.265263472603515',blockY='43.996875286102295'):
-    options = webdriver.ChromeOptions()
-    options.add_argument("--headless")
-    options.add_argument("--disable-dev-shm-usage")
-    options.add_argument("--no-sandbox")
-    options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
-    browser = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"),options=options)
+    chrome_options = webdriver.ChromeOptions()
+    chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+    chrome_options.add_argument("--headless")
+    chrome_options.add_argument("--disable-dev-shm-usage")
+    chrome_options.add_argument("--no-sandbox")
+    browser = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
     
     browser.get(f'https://egrpmap.ru/?cadNumber={region}%3A{district}%3A{zone}%3A{grass}&lat={blockX}&lng={blockY}&zoom=17')
     
