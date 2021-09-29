@@ -19,7 +19,9 @@ def send_some_msg(id, some_text):
 def grass_block(region='52',district='18',zone='0080065',grass='13',blockX='56.265263472603515',blockY='43.996875286102295'):
     options = Options()
     options.headless = True
-    browser = webdriver.Firefox(options=options)
+    options.binary_location = os.environ.get("FIREFOX_BIN")
+    browser = webdriver.Firefox(executable_path=os.environ.get("FIREFOX_PATH"),options=options)
+    
     browser.get(f'https://egrpmap.ru/?cadNumber={region}%3A{district}%3A{zone}%3A{grass}&lat={blockX}&lng={blockY}&zoom=17')
     
     subtitle = browser.find_elements_by_class_name('cadr-map-info-b__subtitle')
