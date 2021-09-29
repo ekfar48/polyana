@@ -28,10 +28,14 @@ def grass_block(region='52',district='18',zone='0080065',grass='13',blockX='56.2
     subtitle = browser.find_elements_by_class_name('cadr-map-info-b__subtitle')
     title = browser.find_elements_by_class_name('cadr-map-info-b__title')
     tabs = browser.find_elements_by_class_name('cadr-map-info-b__info-table')
-    super_text = f'{title[0].text}\n{subtitle[0].text}\n'
-    for table in tabs:
-        super_text += table.text + '\n'
-    super_text += f'https://egrpmap.ru/?cadNumber={region}%3A{district}%3A{zone}%3A{grass}&lat={blockX}&lng={blockY}&zoom=17'
+    try:
+        super_text = f'{title[0].text}\n{subtitle[0].text}\n'
+        for table in tabs:
+            super_text += table.text + '\n'
+        super_text += f'https://egrpmap.ru/?cadNumber={region}%3A{district}%3A{zone}%3A{grass}&lat={blockX}&lng={blockY}&zoom=17'
+    except IndexError:
+        browser.quit()
+        return 'index error'
     browser.quit()
     return super_text
 
