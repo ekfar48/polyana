@@ -1,1 +1,1 @@
-web: python acadastPOL.py
+heroku ps:scale worker=1
