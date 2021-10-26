@@ -1,5 +1,7 @@
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium import webdriver
+
 from random import randint
-from selenium import webdriver  
 import vk_api
 from vk_api.longpoll import VkLongPoll, VkEventType
 import os
