@@ -24,8 +24,4 @@ dnspython
 selenium==4.0.0
 webdriver_manager==3.5.1
 selenium-stealth
-
-vk-api==11.9.4
-selenium==4.0.0
-webdriver_manager==3.5.1
-selenium-stealth
+vk_api
